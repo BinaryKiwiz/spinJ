@@ -15,4 +15,12 @@ export default class LineSegment{
         this.start = trans(this.start, args[0]);
         this.end = trans(this.end, args[0]);
     }
+
+    continue(next){
+        return new LineSegment(this.end, math.add(this.end, next));
+    }
+
+    translate(shift){
+        return new LineSegment(math.add(this.start, shift), math.add(this.end, shift));
+    }
 }
